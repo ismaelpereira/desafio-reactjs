@@ -51,11 +51,14 @@ body {
   color: #61dafb;
 }
 
+/* ----------------------- App CSS -----------------------*/
+
 .search-dev {
   display: flex;
   width: 100%;
   height: 100%;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -91,4 +94,118 @@ body {
   line-height: 62px;
   width: 120px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
+
+/* ----------------------- Search Dev CSS -----------------------*/
+
+.profile-dev {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 4fr;
+  grid-template-rows: 5vh 75vh;
+  grid-template-areas:
+    "sidebar main"
+    "sidebar main"
+    "sidebar main";
+}
+
+.sidebar-profile-dev {
+  grid-area: sidebar;
+  background-color: #3b4252;
+  padding-top: 30px;
+  font-family: Lato;
+  display: flex;
+  flex-direction: column;
+}
+
+.dev-profile-picture {
+  width: 210px;
+  height: 270px;
+  background-color: #c0ccda;
+  align-self: center;
+}
+
+.dev-full-name {
+  padding-top: 30px;
+  padding-left: 10px;
+  font-style: italic;
+  text-align: left;
+  font-size: 25px;
+  color: #eceff4;
+}
+
+.dev-username {
+  padding-left: 10px;
+  font-style: italic;
+  text-align: left;
+  color: #eceff4;
+}
+
+.dev-description {
+  padding-top: 10px;
+  color: #8190a5;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.dev-data {
+  padding-top: 10px;
+  color: #eceff4;
+  font-size: 12px;
+  flex-direction: row;
+}
+
+.dev-infos {
+  color: #eceff4;
+  text-align: left;
+  padding-left: 10px;
+  font-style: italic;
+}
+
+.profile-go-back {
+  width: 125px;
+  height: 50px;
+  background-color: #eceff4;
+  border-radius: 5px;
+  color: #3b4252;
+  font-style: italic;
+  text-align: center;
+  border: none;
+}
+
+.repositories-profile-dev {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-family: Lato;
+  color: #3b4252;
+}
+
+.repository-name {
+  font-style: italic;
+}
+
+.repository-description {
+  text-align: left;
+  font-family: Lato;
+  color: #3b4252;
+}
+
+.repository-data {
+  font-style: italic;
+  color: #8190a5;
+}
+
+.separator {
+  margin-top: 9px;
+  border: 1px solid #eceff4;
+  width: 700px;
+}
+
+/* ----------------------- Dev Profile CSS -----------------------*/

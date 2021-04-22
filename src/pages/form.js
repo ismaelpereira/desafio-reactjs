@@ -9,6 +9,7 @@ export async function fetchData(username) {
     });
     const userData = await res.json();
     console.log(userData);
+    console.log(username);
   } catch (err) {
     throw err;
   }
@@ -19,8 +20,9 @@ export async function fetchData(username) {
         method: "GET",
       }
     );
-    const reposData = await res.json();
-    console.log(reposData);
+    const repoData = await res.json();
+    console.log(repoData);
+    console.log(username);
   } catch (err) {
     throw err;
   }
@@ -28,6 +30,7 @@ export async function fetchData(username) {
 
 const Form = () => {
   const [username, setUsername] = useState("");
+
   return (
     <div className="search-dev">
       <label className="label-search-dev">Search Devs</label>
@@ -36,7 +39,7 @@ const Form = () => {
           className="input-search-dev"
           type="text"
           placeholder="Type the username here..."
-          onClcik={(e) => setUsername(e.target.value)}
+          onClick={(e) => setUsername(e.target.value)}
         ></input>
         <Link to={`/profile/`}>
           <button type="submit" className="btn-search-dev">
