@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 
-export async function fetchData(username) {
+export async function fetchUser(username) {
   try {
     const res = await fetch("https://api.github.com/users/" + username, {
       method: "GET",
     });
     const userData = await res.json();
-    console.log(userData);
-    console.log(username);
+    return userData;
   } catch (err) {
     throw err;
   }
+}
+
+export async function fetchRepos(username) {
   try {
     const res = await fetch(
       "https://api.github.com/users/" + username + "/repos",
@@ -21,8 +23,7 @@ export async function fetchData(username) {
       }
     );
     const repoData = await res.json();
-    console.log(repoData);
-    console.log(username);
+    return repoData;
   } catch (err) {
     throw err;
   }
@@ -30,11 +31,16 @@ export async function fetchData(username) {
 
 const Form = () => {
   const [username, setUsername] = useState("");
-
+  console.log(username);
   return (
     <div className="search-dev">
       <label className="label-search-dev">Search Devs</label>
-      <form onSubmit={fetchData(username)}>
+      <form
+        onSubmit={() => {
+          fetchUser(username);
+          fetchRepos(username);
+        }}
+      >
         <input
           className="input-search-dev"
           type="text"

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { fetchData } from "./form";
+import React, { useState, useEffect } from "react";
 import GroupIcon from "@material-ui/icons/Group";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
@@ -9,14 +8,21 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmailIcon from "@material-ui/icons/Email";
 import LinkIcon from "@material-ui/icons/Link";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import { fetchUser, fetchRepos } from "./form";
 
-const Profile = (userData, userRepo, username) => {
-  useEffect(() => {
-    fetchData(username);
-  }, []);
+const Profile = (username) => {
+  const [user, setUser] = useState({});
+  const [repos, setRepos] = useState([]);
   console.log(username);
-  console.log("user" + userData);
-  console.log("repositorie" + userRepo);
+
+  useEffect(() => {
+    let userData = fetchUser(username);
+    console.log(userData);
+    let repoData = fetchRepos(username);
+    console.log(repoData);
+    setUser(userData);
+    setRepos(repoData);
+  }, []);
 
   return (
     <div className="profile-dev">
