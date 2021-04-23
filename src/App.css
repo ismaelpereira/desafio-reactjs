@@ -2,6 +2,8 @@ html {
   width: 100%;
   height: 100%;
   top: 50%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body {
@@ -165,6 +167,16 @@ body {
   font-style: italic;
 }
 
+.blog-url {
+  text-decoration: none;
+  color: #eceff4;
+}
+
+.blog-url:hover {
+  text-decoration: none;
+  color: #8190a5;
+}
+
 .twitter-username {
   text-decoration: none;
   color: #eceff4;
@@ -186,6 +198,12 @@ body {
   border: none;
 }
 
+.repositories-profile-dev {
+  overflow: visible;
+  overflow-y: scroll;
+  height: 100vw;
+}
+
 .repositories-profile-dev > div {
   grid-area: main;
   display: flex;
@@ -195,7 +213,6 @@ body {
   padding-left: 20px;
   font-family: Lato;
   color: #3b4252;
-  overflow-y: scroll;
 }
 
 .repository-name {

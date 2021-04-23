@@ -25,7 +25,7 @@ const Profile = () => {
   const repositories = repos
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .map((repositorie) => (
-      <div>
+      <div className="repositories-container" key={repositorie.id}>
         <a
           className="repository-name"
           href={repositorie.html_url}
@@ -42,6 +42,63 @@ const Profile = () => {
       </div>
     ));
 
+  const company =
+    user.company !== null ? (
+      <p>
+        <BusinessIcon fontSize="small" />
+        {user.company}
+      </p>
+    ) : (
+      <p></p>
+    );
+
+  const location =
+    user.location !== null ? (
+      <p>
+        <LocationOnIcon fontSize="small" />
+        {user.location}
+      </p>
+    ) : (
+      <p></p>
+    );
+
+  const email =
+    user.email !== null ? (
+      <p>
+        <EmailIcon fontSize="small" />
+        {user.email}
+      </p>
+    ) : (
+      <p></p>
+    );
+
+  const blog =
+    user.blog !== "" ? (
+      <p>
+        <LinkIcon fontSize="small" />
+        <a className="blog-url" href={user.blog} target="_blank">
+          {user.blog}
+        </a>
+      </p>
+    ) : (
+      <p></p>
+    );
+
+  const twitter =
+    user.twitter_username !== null ? (
+      <p>
+        <TwitterIcon fontSize="small" />{" "}
+        <a
+          className="twitter-username"
+          href={`http://twitter.com/${user.twitter_username}`}
+          target="_blank"
+        >
+          @{user.twitter_username}
+        </a>
+      </p>
+    ) : (
+      <p></p>
+    );
   return (
     <div className="profile-dev">
       <div className="sidebar-profile-dev">
@@ -56,32 +113,11 @@ const Profile = () => {
           <StarBorderIcon fontSize="small" /> {starred.length} Stars
         </div>
         <div className="dev-infos">
-          <p>
-            <BusinessIcon fontSize="small" />
-            {user.company}
-          </p>
-          <p>
-            <LocationOnIcon fontSize="small" />
-            {user.location}
-          </p>
-          <p>
-            <EmailIcon fontSize="small" />
-            {user.email}
-          </p>
-          <p>
-            <LinkIcon fontSize="small" />
-            {user.blog}
-          </p>
-          <p>
-            <TwitterIcon fontSize="small" />{" "}
-            <a
-              className="twitter-username"
-              href={`http://twitter.com/${user.twitter_username}`}
-              target="_blank"
-            >
-              @{user.twitter_username}
-            </a>
-          </p>
+          <p>{company}</p>
+          <p>{location}</p>
+          <p>{email}</p>
+          <p>{blog}</p>
+          <p>{twitter}</p>
         </div>
         <div>
           <Link to="/">
