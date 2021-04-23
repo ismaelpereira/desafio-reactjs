@@ -30,6 +30,7 @@ const Profile = () => {
           className="repository-name"
           href={repositorie.html_url}
           target="_blank"
+          rel="noreferrer"
         >
           {repositorie.name}
         </a>
@@ -76,7 +77,12 @@ const Profile = () => {
     user.blog !== "" ? (
       <p>
         <LinkIcon fontSize="small" />
-        <a className="blog-url" href={user.blog} target="_blank">
+        <a
+          className="blog-url"
+          href={user.blog}
+          target="_blank"
+          rel="noreferrer"
+        >
           {user.blog}
         </a>
       </p>
@@ -92,6 +98,7 @@ const Profile = () => {
           className="twitter-username"
           href={`http://twitter.com/${user.twitter_username}`}
           target="_blank"
+          rel="noreferrer"
         >
           @{user.twitter_username}
         </a>
@@ -102,7 +109,11 @@ const Profile = () => {
   return (
     <div className="profile-dev">
       <div className="sidebar-profile-dev">
-        <img className="dev-profile-picture" src={user.avatar_url} />
+        <img
+          className="dev-profile-picture"
+          src={user.avatar_url}
+          alt="Developer"
+        />
         <div className="dev-full-name">{user.name}</div>
         <div className="dev-username">@{username}</div>
         <div className="dev-description">{user.bio}</div>
@@ -113,11 +124,11 @@ const Profile = () => {
           <StarBorderIcon fontSize="small" /> {starred.length} Stars
         </div>
         <div className="dev-infos">
-          <p>{company}</p>
-          <p>{location}</p>
-          <p>{email}</p>
-          <p>{blog}</p>
-          <p>{twitter}</p>
+          {company}
+          {location}
+          {email}
+          {blog}
+          {twitter}
         </div>
         <div>
           <Link to="/">

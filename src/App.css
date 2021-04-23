@@ -3,7 +3,6 @@ html {
   height: 100%;
   top: 50%;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 body {
@@ -53,8 +52,18 @@ body {
   color: #61dafb;
 }
 
-/* ----------------------- App CSS -----------------------*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
+::-webkit-scrollbar-thumb {
+  background-color: #e5e9f2;
+  border-radius: 500px;
+  width: 12px;
+}
+
+/* ----------------------- App CSS -----------------------*/
 .search-dev {
   display: flex;
   width: 100%;
@@ -199,7 +208,6 @@ body {
 }
 
 .repositories-profile-dev {
-  overflow: visible;
   overflow-y: scroll;
   height: 100vw;
 }
