@@ -122,7 +122,7 @@ body {
 }
 
 .dev-profile-picture {
-  width: 210px;
+  width: 270px;
   height: 270px;
   background-color: #c0ccda;
   align-self: center;
@@ -165,6 +165,16 @@ body {
   font-style: italic;
 }
 
+.twitter-username {
+  text-decoration: none;
+  color: #eceff4;
+}
+
+.twitter-username:hover {
+  text-decoration: none;
+  color: #8190a5;
+}
+
 .profile-go-back {
   width: 125px;
   height: 50px;
@@ -176,7 +186,7 @@ body {
   border: none;
 }
 
-.repositories-profile-dev {
+.repositories-profile-dev > div {
   grid-area: main;
   display: flex;
   flex-direction: column;
@@ -185,10 +195,19 @@ body {
   padding-left: 20px;
   font-family: Lato;
   color: #3b4252;
+  overflow-y: scroll;
 }
 
 .repository-name {
   font-style: italic;
+  text-decoration: none;
+  color: #3b4252;
+}
+
+.repository-name:hover {
+  font-style: italic;
+  text-decoration: none;
+  color: #8190a5;
 }
 
 .repository-description {
@@ -200,6 +219,7 @@ body {
 .repository-data {
   font-style: italic;
   color: #8190a5;
+  text-align: left;
 }
 
 .separator {

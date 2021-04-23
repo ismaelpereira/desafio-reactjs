@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 
-export async function fetchUser(username) {
+export const fetchUser = async (username, setUser) => {
   try {
     const res = await fetch("https://api.github.com/users/" + username, {
       method: "GET",
     });
     const userData = await res.json();
-    return userData;
+    setUser(userData);
   } catch (err) {
     throw err;
   }
-}
+};
 
-export async function fetchRepos(username) {
+export const fetchRepos = async (username, setRepos) => {
   try {
     const res = await fetch(
       "https://api.github.com/users/" + username + "/repos",
@@ -23,31 +23,40 @@ export async function fetchRepos(username) {
       }
     );
     const repoData = await res.json();
-    return repoData;
+    setRepos(repoData);
   } catch (err) {
     throw err;
   }
-}
+};
+
+export const fetchStarred = async (username, setStarred) => {
+  try {
+    const res = await fetch(
+      "https://api.github.com/users/" + username + "/starred",
+      {
+        method: "GET",
+      }
+    );
+    const starredData = await res.json();
+    setStarred(starredData);
+  } catch (err) {
+    throw err;
+  }
+};
 
 const Form = () => {
   const [username, setUsername] = useState("");
-  console.log(username);
   return (
     <div className="search-dev">
       <label className="label-search-dev">Search Devs</label>
-      <form
-        onSubmit={() => {
-          fetchUser(username);
-          fetchRepos(username);
-        }}
-      >
+      <form>
         <input
           className="input-search-dev"
           type="text"
           placeholder="Type the username here..."
-          onClick={(e) => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         ></input>
-        <Link to={`/profile/`}>
+        <Link to={`/profile/${username}`}>
           <button type="submit" className="btn-search-dev">
             <SearchIcon />
             Buscar

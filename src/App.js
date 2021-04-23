@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Form from "./pages/form";
@@ -9,7 +10,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Form} />
-          <Route path={`/profile/`} component={Profile} />
+          <Route path="/profile/:username" component={Profile} />
         </Switch>
       </Router>
     </div>
