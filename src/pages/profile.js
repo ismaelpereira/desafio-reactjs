@@ -16,6 +16,11 @@ const Profile = () => {
   const [starred, setStarred] = useState([]);
   const { username } = useParams();
 
+  if (username === "") {
+    alert("username cannot be empty");
+    throw new Error();
+  }
+
   useEffect(() => {
     fetchUser(username, setUser);
     fetchRepos(username, setRepos);

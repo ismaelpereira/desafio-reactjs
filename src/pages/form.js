@@ -10,6 +10,7 @@ export const fetchUser = async (username, setUser) => {
     const userData = await res.json();
     setUser(userData);
   } catch (err) {
+    console.log(err);
     alert("A problem ocurred! Check the developer name");
     throw err;
   }
@@ -27,6 +28,7 @@ export const fetchRepos = async (username, setRepos) => {
     setRepos(repoData);
   } catch (err) {
     alert("A problem ocurred! Check the developer name");
+    console.log(err);
     throw err;
   }
 };
@@ -43,6 +45,7 @@ export const fetchStarred = async (username, setStarred) => {
     setStarred(starredData);
   } catch (err) {
     alert("A problem ocurred! Check the developer name");
+    console.log(err);
     throw err;
   }
 };

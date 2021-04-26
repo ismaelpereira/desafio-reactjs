@@ -1,27 +1,28 @@
 html {
   width: 100%;
   height: 100%;
-  top: 50%;
-  overflow-x: hidden;
+  top: 100%;
 }
 
 body {
   width: 100%;
   height: 100%;
-  top: 50%;
+  top: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 html,
 body {
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 #root {
   width: 100%;
   height: 100%;
-  top: 50%;
+  top: 100%;
 }
 
 .App {
@@ -29,7 +30,7 @@ body {
   margin: 0 auto;
   width: 100%;
   height: 100%;
-  top: 50%;
+  top: 100%;
 }
 
 .App-logo {
@@ -58,7 +59,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e5e9f2;
+  background-color: #3b4252;
   border-radius: 500px;
   width: 12px;
 }
@@ -78,7 +79,6 @@ body {
   font-family: Lato;
   font-size: 40px;
   font-style: italic;
-  line-height: 50px;
   text-align: center;
 }
 
@@ -130,6 +130,7 @@ body {
   font-family: Lato;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .dev-profile-picture {
@@ -208,25 +209,26 @@ body {
 }
 
 .repositories-profile-dev {
+  grid-area: main;
   overflow-y: scroll;
-  height: 100vw;
+  overflow-x: hidden;
 }
 
-.repositories-profile-dev > div {
-  grid-area: main;
+.repositories-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 20px;
-  padding-left: 20px;
   font-family: Lato;
   color: #3b4252;
+  padding-left: 20px;
 }
 
 .repository-name {
   font-style: italic;
   text-decoration: none;
   color: #3b4252;
+  font-size: 20px;
 }
 
 .repository-name:hover {
@@ -245,12 +247,12 @@ body {
   font-style: italic;
   color: #8190a5;
   text-align: left;
+  width: 100%;
 }
 
 .separator {
   margin-top: 9px;
   border: 1px solid #eceff4;
-  width: 700px;
 }
 
 /* ----------------------- Dev Profile CSS -----------------------*/
