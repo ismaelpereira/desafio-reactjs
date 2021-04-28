@@ -16,16 +16,11 @@ const Profile = () => {
   const [starred, setStarred] = useState([]);
   const { username } = useParams();
 
-  if (username === "") {
-    alert("username cannot be empty");
-    throw new Error();
-  }
-
   useEffect(() => {
     fetchUser(username, setUser);
     fetchRepos(username, setRepos);
     fetchStarred(username, setStarred);
-  }, []);
+  }, [username]);
 
   const repositories = repos
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
